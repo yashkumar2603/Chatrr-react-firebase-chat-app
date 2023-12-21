@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&family=PT+Serif:wght@400;700&display=swap');
+// Colors
+$blue: #32325d;
+$gray: #F5F6FA;
+$dark-gray: #6b7c93;
+$white: #fff;
+$border-rounded: 6px;
+
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+
+.formContainer {
+    font-family: 'PT Serif', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, hsla(323, 37%, 35%, 1) 40%, hsla(211, 36%, 46%, 1) 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .formWrapper {
+        background-color: whitesmoke;
+        padding: 20px 60px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+        .logo {
+            color: #5d5b8d;
+            font-weight: bold;
+            font-size: 36px;
+        }
+
+        .title {
+            color: #51505a;
+            font-weight: normal;
+            font-size: 21px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 15vw;
+
+            input {
+                padding: 15px;
+                background-color: whitesmoke;
+                border: none;
+                border-bottom: 1.5px solid #a7bcff;
+
+                &::placeholder {
+                    color: rgb(200, 200, 200);
+                }
+            }
+
+            button {
+                font-family: 'Raleway', sans-serif;
+                border: none;
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                font-weight: 800;
+                font-size: 1em;
+                text-transform: uppercase;
+                color: $white;
+                cursor: pointer;
+
+                //Button shape & animation
+                border-radius: $border-rounded;
+                margin: 10px;
+                padding: 1em 3em;
+                background-size: 200% auto;
+                color: white;
+                box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+                background-image: linear-gradient(to right, #895cf2 0%, #ffabf4 50%, #895cf2 100%);
+                transition: 0.5s;
+
+                &:hover {
+                    background-position: right center;
+                }
+            }
+
+            label {
+                margin: 8px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #8da4f1;
+                font-size: 16px;
+                cursor: pointer;
+
+                img {
+                    width: 32px;
+                }
+            }
+
+        }
+
+        p {
+            color: #5d5b8d;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+    }
+}
+
+.home {
+    background-color: #a7bcff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container {
+        border: 1px solid white;
+        border-radius: 10px;
+        width: 75%;
+        height: 85%;
+        display: flex;
+        overflow: hidden;
+
+        @include tablet {
+            width: 90%;
+        }
+
+        .Sidebar {
+            flex: 1;
+            border-right: 1px solid #3e3c61;
+            background-color: #3e3c61;
+
+            .navbar {
+                display: flex;
+                align-items: center;
+                background-color: #2f2d52;
+                height: 50px;
+                padding: 10px;
+                justify-content: space-between;
+                color: #ddddf7;
+
+                .logo {
+                    font-family: 'PT sans', sans-serif;
+                    font-weight: bold;
+                    font-size: x-large;
+                    margin: 10px;
+
+                    @include tablet {
+                        display: none;
+                    }
+                }
+
+                .user {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    img {
+                        background-color: #ddddf7;
+                        height: 30px;
+                        width: 30px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    button {
+                        background-color: #5d5b8d;
+                        color: #ddddf7;
+                        font-size: 20px;
+                        border: none;
+                        cursor: pointer;
+                        margin: 10px;
+
+                        @include tablet {
+                            position: absolute;
+                            bottom: 10px;
+                        }
+                    }
+                }
+            }
+
+            .search {
+                border-bottom: 1px solid gray;
+
+                .searchForm {
+                    padding: 10px;
+
+                    input {
+                        background-color: #3e3c61;
+                        border: none;
+                        color: white;
+                        outline: none;
+
+                        &::placeholder {
+                            color: rgb(131, 131, 131);
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+
+            .userChat {
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: white;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #2f2d52;
+                }
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                .userChatInfo {
+                    font-family: 'PT sans', sans-serif;
+
+                    span {
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        color: lightgray;
+                    }
+                }
+            }
+        }
+
+        .Chat {
+            flex: 2; //Chat should be 2 times bigg compared to Sidebar.
+
+            .chatInfo {
+                font-family: 'PT sans', sans-serif;
+                height: 30px;
+                background-color: #5d5b8d;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                color: lightgray;
+            }
+
+            .messages::-webkit-scrollbar {
+                display: none;
+                /* Safari and Chrome */
+            }
+
+            .messages {
+                background-color: #ddddf7;
+                padding: 15px;
+                height: calc(100% - 140px);
+                overflow: scroll;
+                scrollbar-width: none;
+
+                .message {
+                    font-family: 'PT sans', sans-serif;
+                    display: flex;
+                    gap: 18px;
+                    scrollbar-width: none;
+
+                    .messageInfo {
+                        font-family: 'PT sans', sans-serif;
+                        display: flex;
+                        flex-direction: column;
+                        color: gray;
+                        font-weight: normal;
+
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .messageContent {
+                        max-width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        p {
+                            background-color: white;
+                            padding: 10px 20px;
+                            border-radius: 0px 10px 10px 10px;
+                            max-width: max-content;
+                        }
+
+                        img {
+                            width: 30%;
+                        }
+                    }
+
+                    &.owner {
+                        flex-direction: row-reverse;
+
+                        .messageContent {
+                            align-items: flex-end;
+
+                            p {
+                                background-color: #8da4f1;
+                                color: white;
+                                border-radius: 10px 0px 10px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .Input {
+            height: 40px;
+            background-color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            input {
+                width: 100%;
+                border: none;
+                outline: none;
+                color: #2f2d52;
+                font-size: 18px;
+
+                &::placeholder {
+                    color: lightgray;
+                }
+            }
+
+            .send {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            img {
+                width: 28px;
+                cursor: pointer;
+            }
+
+            button {
+                border: none;
+                padding: 10px 15px;
+                color: white;
+                background-color: #8da4f1;
+                cursor: pointer;
+            }
+        }
+    }
+}
